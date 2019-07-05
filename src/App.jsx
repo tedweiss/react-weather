@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class App extends Component {
-  render () {
-    return (
-      <div className='App'>
-        To get started, edit <code>src/App.jsx</code> and save to reload.
-      </div>
-    )
-  }
+import Current from './current/Current'
+
+const App = () => {
+  return (
+    <>
+      <Current />
+    </>
+  )
 }
 
 export default App
