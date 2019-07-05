@@ -1,0 +1,47 @@
+{
+  "name": "react-weather",
+  "version": "0.1.0",
+  "description": "Weather App",
+  "dependencies": {
+    "acorn": "^6.2.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "css-loader": "^2.1.0",
+    "jest": "^24.8.0",
+    "regenerator-runtime": "^0.13.1",
+    "standard": "^12.0.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server ./src/index.js --mode development --devtool inline-source-map",
+    "build": "webpack --mode development --devtool inline-source-map",
+    "pro": "webpack --mode production",
+    "test": "jest --watchAll"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "describe",
+      "test",
+      "expect",
+      "XMLHttpRequest"
+    ]
+  }
+}
