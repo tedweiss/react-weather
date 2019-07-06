@@ -1,1 +1,4 @@
 node_modules
+
+# API Keys for network calls
+/src/utils/apiKeys.js
