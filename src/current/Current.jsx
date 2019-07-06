@@ -68,12 +68,17 @@ const Current = () => {
     [weatherUrl]
   )
   console.log('weatherData', weatherData)
+
+  let temperature = weatherData.main ? weatherData.main.temp.toFixed() : ''
+
   return (
     <>
       <div className={'current-page'}>Current Weather</div>
-      <div>{userLocation.city}</div>
-      <div>{userLocation.lat}</div>
-      <div>{userLocation.lon}</div>
+      <div>{weatherData.name}</div>
+      <div>
+        {temperature}
+        {temperature && <span>&deg;F</span>}
+      </div>
     </>
   )
 }
