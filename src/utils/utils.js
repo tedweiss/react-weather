@@ -27,6 +27,7 @@ export const matchCity = (userLocation, matchedCities) => {
       if (city.coord.lat.toString() === userLocation.lat && city.coord.lon.toString() === userLocation.lon) {
         cityId = city.id.toString()
       } else if (
+        // match just whole number
         city.coord.lat.toString().split('.')[0] === userLocation.lat.split('.')[0] &&
         city.coord.lon.toString().split('.')[0] === userLocation.lon.split('.')[0]
       ) {
