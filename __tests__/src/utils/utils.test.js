@@ -1,4 +1,12 @@
-import { matchCity, convertDateTime, handleHours, handleMinutes, handleDay, handleMonth } from '../../../src/utils/utils'
+import {
+  matchCity,
+  convertDateTime,
+  handleHours,
+  handleMinutes,
+  handleDay,
+  handleMonth,
+  findIndexValueOfArray
+} from '../../../src/utils/utils'
 
 describe('matchCity', () => {
   test('should return a string id of the city', () => {
@@ -152,5 +160,13 @@ describe('handleMonth', () => {
   test('should return the text value of the month', () => {
     let month = 6
     expect(handleMonth(month)).toEqual('July')
+  })
+})
+
+describe('findIndexValueOfArray', () => {
+  test('should return the index text value of the day of the week', () => {
+    let index = 6
+    let array = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    expect(findIndexValueOfArray(index, array)).toEqual('Saturday')
   })
 })

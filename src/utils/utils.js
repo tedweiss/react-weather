@@ -116,3 +116,15 @@ export const handleMonth = month => {
   handledMonth = months[month]
   return handledMonth
 }
+
+/**
+ * @function findIndexValueOfArray
+ * @param  {number} index {index of what is being looked for in the array}
+ * @param  {array} array {the array of what is being searched}
+ * @return {any} {the individual indexed data from the array}
+ */
+export const findIndexValueOfArray = (index, array) => {
+  let value = ''
+  value = array[index]
+  return value
+}
