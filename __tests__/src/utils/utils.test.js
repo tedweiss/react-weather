@@ -116,4 +116,8 @@ describe('handleHours', () => {
     let hours = 15
     expect(handleHours(hours)).toEqual(3)
   })
+  test("should return '12' if the hours is '0'", () => {
+    let hours = 0
+    expect(handleHours(hours)).toEqual(12)
+  })
 })

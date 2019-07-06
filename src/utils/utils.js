@@ -59,6 +59,8 @@ export const handleHours = hours => {
   let handledHours = hours
   if (hours > 12) {
     handledHours = hours - 12
+  } else if (hours === 0) {
+    handledHours = 12
   }
   return handledHours
 }
