@@ -22,8 +22,16 @@ export const getPromiseData = url => {
 export const matchCity = (userLocation, matchedCities) => {
   let cityId = ''
   matchedCities.map(city => {
-    if (city.name === userLocation.city && city.coord.lat.toString() === userLocation.lat && city.coord.lon.toString() === userLocation.lon) {
-      cityId = city.id.toString()
+    if (city.name === userLocation.city) {
+      // check exact matches
+      if (city.coord.lat.toString() === userLocation.lat && city.coord.lon.toString() === userLocation.lon) {
+        cityId = city.id.toString()
+      } else if (
+        city.coord.lat.toString().split('.')[0] === userLocation.lat.split('.')[0] &&
+        city.coord.lon.toString().split('.')[0] === userLocation.lon.split('.')[0]
+      ) {
+        cityId = city.id.toString()
+      }
     }
   })
   return cityId
