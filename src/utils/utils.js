@@ -66,3 +66,13 @@ export const handleHours = hours => {
   }
   return { handledHours, amPm }
 }
+
+/**
+ * @function handleMinutes
+ * @param  {number} minutes {minutes in the hour}
+ * @return {string} {minutes in 2 digit format}
+ */
+export const handleMinutes = minutes => {
+  let handledMinutes = minutes
+  return handledMinutes.toString()
+}

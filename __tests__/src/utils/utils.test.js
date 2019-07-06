@@ -1,4 +1,4 @@
-import { matchCity, convertDateTime, handleHours } from '../../../src/utils/utils'
+import { matchCity, convertDateTime, handleHours, handleMinutes } from '../../../src/utils/utils'
 
 describe('matchCity', () => {
   test('should return a string id of the city', () => {
@@ -127,5 +127,12 @@ describe('handleHours', () => {
   test("should return 'pm' if the hours is greater than '12' going into the function", () => {
     let hours = 18
     expect(handleHours(hours).amPm).toEqual('pm')
+  })
+})
+
+describe('handleMinutes', () => {
+  test('should return the correct minutes if 2 digits are passed in', () => {
+    let minutes = 34
+    expect(handleMinutes(minutes)).toEqual('34')
   })
 })
