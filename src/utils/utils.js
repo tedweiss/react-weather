@@ -12,3 +12,19 @@ export const getPromiseData = url => {
     xhr.send()
   })
 }
+
+/**
+ * @function matchCity
+ * @param  {object} userLocation  {city, lat, lon}
+ * @param  {array} matchedCities {list of cities with same name as userLocation city}
+ * @return {string} {city id of the matched city}
+ */
+export const matchCity = (userLocation, matchedCities) => {
+  let cityId = ''
+  matchedCities.map(city => {
+    if (city.name === userLocation.city && city.coord.lat.toString() === userLocation.lat && city.coord.lon.toString() === userLocation.lon) {
+      cityId = city.id.toString()
+    }
+  })
+  return cityId
+}
