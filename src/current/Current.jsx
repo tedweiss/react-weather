@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 
-import { ipGeoLocationKey } from '../utils/apiKeys'
-import { getPromiseData } from '../utils/utils'
+import { ipGeoLocationKey, openWeatherMapKey } from '../utils/apiKeys'
+import { getPromiseData, matchCity } from '../utils/utils'
 
 const Current = () => {
   const [userLocation, setUserLocation] = useState({})
+  const [getWeatherUrl, setGetWeatherUrl] = useState('')
 
   // get the user's location
   useEffect(() => {
@@ -22,13 +23,37 @@ const Current = () => {
       let findUrl =
         'https://api.openweathermap.org/data/2.5/find?q=' +
         userLocation.city +
-        '&units=imperial&appid=6bf2d3a0044954f9aa03113e2c443ab3'
+        '&units=imperial&appid=' +
+        openWeatherMapKey
       getPromiseData(findUrl).then(result => {
-        console.log('find:', JSON.parse(result))
+        let matchedCity = matchCity(userLocation, JSON.parse(result).list)
+        let currentUrl = ''
+
+        // matched city
+        if (matchedCity) {
+          // city id
+          currentUrl =
+            'https://api.openweathermap.org/data/2.5/weather?id=' +
+            matchedCity +
+            '&units=imperial&appid=' +
+            openWeatherMapKey
+        } else {
+          // city coordinates
+          currentUrl =
+            'https://api.openweathermap.org/data/2.5/weather?lat=' +
+            userLocation.lat +
+            '&lon=' +
+            userLocation.lon +
+            '&units=imperial&appid=' +
+            openWeatherMapKey
+        }
+        console.log(currentUrl)
+        setGetWeatherUrl(currentUrl)
       })
     },
     [userLocation]
   )
+  console.log('getWeatherUrl', getWeatherUrl)
   return (
     <>
       <div className={'current-page'}>Current Weather</div>
