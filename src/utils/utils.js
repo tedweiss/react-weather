@@ -41,15 +41,39 @@ export const matchCity = (userLocation, matchedCities) => {
 /**
  * @function convertDateTime
  * @param  {number} timestamp {unix time stamp}
- * @return {string} {Date}
+ * @return {object} {Date}
  * @return {string} {Time}
  */
 export const convertDateTime = timestamp => {
-  let date = new Date(timestamp * 1000)
-  const { handledHours, amPm } = handleHours(date.getHours())
-  let minutes = handleMinutes(date.getMinutes())
+  let newDate = new Date(timestamp * 1000)
+
+  // date
+  let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+  let day = findIndexValueOfArray(newDate.getDay(), days)
+  let date = newDate.getDate()
+  let months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ]
+  let month = findIndexValueOfArray(newDate.getMonth(), months)
+  let year = newDate.getFullYear()
+  let fullDate = { day, date, month, year }
+
+  // time
+  const { handledHours, amPm } = handleHours(newDate.getHours())
+  let minutes = handleMinutes(newDate.getMinutes())
   let time = handledHours + ':' + minutes + '' + amPm
-  return time
+  return { fullDate, time }
 }
 
 /**

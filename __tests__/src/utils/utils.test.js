@@ -111,7 +111,12 @@ describe('convertDateTime', () => {
   test('should return a readable time', () => {
     let timestamp = 1562421146
     let readableTime = '9:52am'
-    expect(convertDateTime(timestamp)).toEqual(readableTime)
+    expect(convertDateTime(timestamp).time).toEqual(readableTime)
+  })
+  test('should return a useable date object', () => {
+    let timestamp = 1562421146
+    let useableDateObj = { date: 6, day: 'Saturday', month: 'July', year: 2019 }
+    expect(convertDateTime(timestamp).fullDate).toEqual(useableDateObj)
   })
 })
 
