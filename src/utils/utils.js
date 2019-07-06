@@ -73,6 +73,9 @@ export const handleHours = hours => {
  * @return {string} {minutes in 2 digit format}
  */
 export const handleMinutes = minutes => {
-  let handledMinutes = minutes
-  return handledMinutes.toString()
+  let handledMinutes = minutes.toString()
+  if (handledMinutes.split('').length === 1) {
+    handledMinutes = '0' + handledMinutes
+  }
+  return handledMinutes
 }

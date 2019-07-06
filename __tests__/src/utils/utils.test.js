@@ -135,4 +135,8 @@ describe('handleMinutes', () => {
     let minutes = 34
     expect(handleMinutes(minutes)).toEqual('34')
   })
+  test('should return the correct minutes in 2 digits format if 1 digit is passed in', () => {
+    let minutes = 7
+    expect(handleMinutes(minutes)).toEqual('07')
+  })
 })
