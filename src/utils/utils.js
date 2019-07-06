@@ -79,3 +79,15 @@ export const handleMinutes = minutes => {
   }
   return handledMinutes
 }
+
+/**
+ * @function handleDay
+ * @param  {number} day {number value of a day of a week}
+ * @return {string} {text value of the day of the week}
+ */
+export const handleDay = day => {
+  let handledDay = ''
+  let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+  handledDay = days[day]
+  return handledDay
+}
