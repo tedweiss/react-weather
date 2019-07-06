@@ -110,14 +110,18 @@ describe('convertDateTime', () => {
 describe('handleHours', () => {
   test('should return the correct hours', () => {
     let hours = 9
-    expect(handleHours(hours)).toEqual(9)
+    expect(handleHours(hours).handledHours).toEqual(9)
   })
   test('should return the correct hours when hours are greater than 12', () => {
     let hours = 15
-    expect(handleHours(hours)).toEqual(3)
+    expect(handleHours(hours).handledHours).toEqual(3)
   })
   test("should return '12' if the hours is '0'", () => {
     let hours = 0
-    expect(handleHours(hours)).toEqual(12)
+    expect(handleHours(hours).handledHours).toEqual(12)
+  })
+  test("should return 'am' if the hours is '12' or less going into the function", () => {
+    let hours = 6
+    expect(handleHours(hours).amPm).toEqual('am')
   })
 })

@@ -57,10 +57,11 @@ export const convertDateTime = timestamp => {
  */
 export const handleHours = hours => {
   let handledHours = hours
+  let amPm = 'am'
   if (hours > 12) {
     handledHours = hours - 12
   } else if (hours === 0) {
     handledHours = 12
   }
-  return handledHours
+  return { handledHours, amPm }
 }
