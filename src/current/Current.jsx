@@ -5,7 +5,8 @@ import { getPromiseData, matchCity } from '../utils/utils'
 
 const Current = () => {
   const [userLocation, setUserLocation] = useState({})
-  const [getWeatherUrl, setGetWeatherUrl] = useState('')
+  const [weatherUrl, setWeatherUrl] = useState('')
+  const [weatherData, setWeatherData] = useState({})
 
   // get the user's location
   useEffect(() => {
@@ -47,13 +48,26 @@ const Current = () => {
             '&units=imperial&appid=' +
             openWeatherMapKey
         }
-        console.log(currentUrl)
-        setGetWeatherUrl(currentUrl)
+        // check prevents error in console
+        if (userLocation.lat && userLocation.lon) {
+          setWeatherUrl(currentUrl)
+        }
       })
     },
     [userLocation]
   )
-  console.log('getWeatherUrl', getWeatherUrl)
+  useEffect(
+    () => {
+      // check prevents parsing error
+      if (weatherUrl) {
+        getPromiseData(weatherUrl).then(result => {
+          setWeatherData(JSON.parse(result))
+        })
+      }
+    },
+    [weatherUrl]
+  )
+  console.log('weatherData', weatherData)
   return (
     <>
       <div className={'current-page'}>Current Weather</div>
