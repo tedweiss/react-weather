@@ -149,20 +149,6 @@ describe('handleMinutes', () => {
   })
 })
 
-describe('handleDay', () => {
-  test('should return the text value of the day of the week', () => {
-    let day = 6
-    expect(handleDay(day)).toEqual('Saturday')
-  })
-})
-
-describe('handleMonth', () => {
-  test('should return the text value of the month', () => {
-    let month = 6
-    expect(handleMonth(month)).toEqual('July')
-  })
-})
-
 describe('findIndexValueOfArray', () => {
   test('should return the index text value of the day of the week', () => {
     let index = 6

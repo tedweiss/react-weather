@@ -81,43 +81,6 @@ export const handleMinutes = minutes => {
 }
 
 /**
- * @function handleDay
- * @param  {number} day {number value of a day of a week}
- * @return {string} {text value of the day of the week}
- */
-export const handleDay = day => {
-  let handledDay = ''
-  let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-  handledDay = days[day]
-  return handledDay
-}
-
-/**
- * @function handleMonth
- * @param  {number} month {number value of the month}
- * @return {string} {text value of the month}
- */
-export const handleMonth = month => {
-  let handledMonth = ''
-  let months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-  ]
-  handledMonth = months[month]
-  return handledMonth
-}
-
-/**
  * @function findIndexValueOfArray
  * @param  {number} index {index of what is being looked for in the array}
  * @param  {array} array {the array of what is being searched}
