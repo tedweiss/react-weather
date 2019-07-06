@@ -46,7 +46,10 @@ export const matchCity = (userLocation, matchedCities) => {
  */
 export const convertDateTime = timestamp => {
   let date = new Date(timestamp * 1000)
-  return date.toString()
+  const { handledHours, amPm } = handleHours(date.getHours())
+  let minutes = handleMinutes(date.getMinutes())
+  let time = handledHours + ':' + minutes + '' + amPm
+  return time
 }
 
 /**
