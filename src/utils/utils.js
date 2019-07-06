@@ -57,5 +57,8 @@ export const convertDateTime = timestamp => {
  */
 export const handleHours = hours => {
   let handledHours = hours
+  if (hours > 12) {
+    handledHours = hours - 12
+  }
   return handledHours
 }

@@ -112,4 +112,8 @@ describe('handleHours', () => {
     let hours = 9
     expect(handleHours(hours)).toEqual(9)
   })
+  test('should return the correct hours when hours are greater than 12', () => {
+    let hours = 15
+    expect(handleHours(hours)).toEqual(3)
+  })
 })
