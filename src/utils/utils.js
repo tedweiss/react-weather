@@ -91,3 +91,28 @@ export const handleDay = day => {
   handledDay = days[day]
   return handledDay
 }
+
+/**
+ * @function handleMonth
+ * @param  {number} month {number value of the month}
+ * @return {string} {text value of the month}
+ */
+export const handleMonth = month => {
+  let handledMonth = ''
+  let months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ]
+  handledMonth = months[month]
+  return handledMonth
+}
