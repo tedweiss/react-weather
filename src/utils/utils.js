@@ -60,6 +60,7 @@ export const handleHours = hours => {
   let amPm = 'am'
   if (hours > 12) {
     handledHours = hours - 12
+    amPm = 'pm'
   } else if (hours === 0) {
     handledHours = 12
   }
