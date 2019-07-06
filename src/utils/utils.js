@@ -48,3 +48,14 @@ export const convertDateTime = timestamp => {
   let date = new Date(timestamp * 1000)
   return date.toString()
 }
+
+/**
+ * @function handleHours
+ * @param  {number} hours {hours in the day in military time}
+ * @return {number} {non military time hours}
+ * @return {string} {am pm}
+ */
+export const handleHours = hours => {
+  let handledHours = hours
+  return handledHours
+}

@@ -1,4 +1,4 @@
-import { matchCity, convertDateTime } from '../../../src/utils/utils'
+import { matchCity, convertDateTime, handleHours } from '../../../src/utils/utils'
 
 describe('matchCity', () => {
   test('should return a string id of the city', () => {
@@ -104,5 +104,12 @@ describe('convertDateTime', () => {
     let timestamp = 1562421146
     let readableDate = 'Sat Jul 06 2019 09:52:26 GMT-0400 (Eastern Daylight Time)'
     expect(convertDateTime(timestamp)).toEqual(readableDate)
+  })
+})
+
+describe('handleHours', () => {
+  test('should return the correct hours', () => {
+    let hours = 9
+    expect(handleHours(hours)).toEqual(9)
   })
 })
