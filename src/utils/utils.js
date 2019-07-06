@@ -37,3 +37,14 @@ export const matchCity = (userLocation, matchedCities) => {
   })
   return cityId
 }
+
+/**
+ * @function convertDateTime
+ * @param  {number} timestamp {unix time stamp}
+ * @return {string} {Date}
+ * @return {string} {Time}
+ */
+export const convertDateTime = timestamp => {
+  let date = new Date(timestamp * 1000)
+  return date.toString()
+}

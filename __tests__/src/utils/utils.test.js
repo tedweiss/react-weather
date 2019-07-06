@@ -1,4 +1,4 @@
-import { matchCity } from '../../../src/utils/utils'
+import { matchCity, convertDateTime } from '../../../src/utils/utils'
 
 describe('matchCity', () => {
   test('should return a string id of the city', () => {
@@ -96,5 +96,13 @@ describe('matchCity', () => {
       }
     ]
     expect(matchCity(userLocation, matchedCities)).toEqual('512')
+  })
+})
+
+describe('convertDateTime', () => {
+  test('should return a readable date', () => {
+    let timestamp = 1562421146
+    let readableDate = 'Sat Jul 06 2019 09:52:26 GMT-0400 (Eastern Daylight Time)'
+    expect(convertDateTime(timestamp)).toEqual(readableDate)
   })
 })
