@@ -169,4 +169,22 @@ describe('findIndexValueOfArray', () => {
     let array = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     expect(findIndexValueOfArray(index, array)).toEqual('Saturday')
   })
+  test('should return the index text value of the month', () => {
+    let index = 11
+    let array = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
+    ]
+    expect(findIndexValueOfArray(index, array)).toEqual('December')
+  })
 })
