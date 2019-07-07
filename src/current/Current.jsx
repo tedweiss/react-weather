@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { ipGeoLocationKey, openWeatherMapKey } from '../utils/apiKeys'
-import { getPromiseData, matchCity } from '../utils/utils'
+import { getPromiseData, matchCity, convertDateTime } from '../utils/utils'
 
 const Current = () => {
   const [userLocation, setUserLocation] = useState({})
@@ -70,15 +70,26 @@ const Current = () => {
   console.log('weatherData', weatherData)
 
   let temperature = weatherData.main ? weatherData.main.temp.toFixed() : ''
+  const { fullDate } = convertDateTime(weatherData.dt)
+  const { day, date, month, year } = fullDate
 
   return (
     <>
-      <div className={'current-page'}>Current Weather</div>
-      <div>{weatherData.name}</div>
-      <div>
-        {temperature}
-        {temperature && <span>&deg;F</span>}
-      </div>
+      {/* only renders if there is data in weatherData */}
+      {weatherData.main && (
+        <>
+          <div className={'current-page'}>Current Weather</div>
+          <div>{weatherData.name}</div>
+          <div className={'temperature'}>
+            {temperature}
+            {temperature && <span>&deg;F</span>}
+          </div>
+          <div className={'date'}>
+            <div>{day}</div>
+            {month} {date}, {year}
+          </div>
+        </>
+      )}
     </>
   )
 }
