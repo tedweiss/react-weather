@@ -154,6 +154,8 @@ export const findMinMaxTemp = hours => {
   hours.map(hour => {
     if (!min) {
       min = hour.main.temp_min
+    } else if (hour.main.temp_min < min) {
+      min = hour.main.temp_min
     }
     if (!max) {
       max = hour.main.temp_max

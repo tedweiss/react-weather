@@ -1639,12 +1639,16 @@ describe('findMinMaxTemp', () => {
       dt_txt: '2019-07-08 00:00:00'
     }
   ]
-  test('should return the first minimum value if min is undefined', () => {
-    let newMin = 77.77
+  test('should return the lowest minimum value if "min" is undefined proving it has been replaced', () => {
+    let newMin = 64.14
     expect(findMinMaxTemp(hours).min).toEqual(newMin)
   })
   test('should return the first maximum value if max is undefined', () => {
     let newMax = 78.87
     expect(findMinMaxTemp(hours).max).toEqual(newMax)
+  })
+  test('should return the lowest minimum value', () => {
+    let newMin = 64.14
+    expect(findMinMaxTemp(hours).min).toEqual(newMin)
   })
 })
