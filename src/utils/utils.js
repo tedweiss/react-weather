@@ -155,6 +155,9 @@ export const findMinMaxTemp = hours => {
     if (!min) {
       min = hour.main.temp_min
     }
+    if (!max) {
+      max = hour.main.temp_max
+    }
   })
   return { min, max }
 }

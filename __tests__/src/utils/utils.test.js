@@ -1643,4 +1643,8 @@ describe('findMinMaxTemp', () => {
     let newMin = 77.77
     expect(findMinMaxTemp(hours).min).toEqual(newMin)
   })
+  test('should return the first maximum value if max is undefined', () => {
+    let newMax = 78.87
+    expect(findMinMaxTemp(hours).max).toEqual(newMax)
+  })
 })
