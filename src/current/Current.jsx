@@ -73,17 +73,23 @@ const Current = () => {
   const { fullDate } = convertDateTime(weatherData.dt)
   const { day, date, month, year } = fullDate
 
+  let weatherIcon = weatherData.main ? (weatherData.weather[0] ? weatherData.weather[0].icon : '') : ''
   return (
     <>
       {/* only renders if there is data in weatherData */}
       {weatherData.main && (
         <>
           <div className={'current-page'}>Current Weather</div>
-          <div>{weatherData.name}</div>
+          <div className={'city'}>{weatherData.name}</div>
           <div className={'temperature'}>
             {temperature}
             {temperature && <span>&deg;F</span>}
           </div>
+          <img
+            className={'weather-icon'}
+            src={'http://openweathermap.org/img/w/' + weatherIcon + '.png'}
+            alt={'weather icon'}
+          />
           <div className={'date'}>
             <div>{day}</div>
             {month} {date}, {year}
