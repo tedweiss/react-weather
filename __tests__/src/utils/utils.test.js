@@ -1585,6 +1585,24 @@ describe('sortDays', () => {
 describe('findMinMaxTemp', () => {
   let hours = [
     {
+      dt: 1562544000,
+      main: {
+        temp: 72.81,
+        temp_min: 71.98,
+        temp_max: 72.81,
+        pressure: 1015.78,
+        sea_level: 1015.78,
+        grnd_level: 983.17,
+        humidity: 57,
+        temp_kf: 0.46
+      },
+      weather: [{ id: 802, main: 'Clouds', description: 'scattered clouds', icon: '03n' }],
+      clouds: { all: 25 },
+      wind: { speed: 9.84, deg: 22.669 },
+      sys: { pod: 'n' },
+      dt_txt: '2019-07-08 00:00:00'
+    },
+    {
       dt: 1562533200,
       main: {
         temp: 78.87,
@@ -1619,36 +1637,22 @@ describe('findMinMaxTemp', () => {
       wind: { speed: 7.43, deg: 24.174 },
       sys: { pod: 'n' },
       dt_txt: '2019-07-08 03:00:00'
-    },
-    {
-      dt: 1562544000,
-      main: {
-        temp: 72.81,
-        temp_min: 71.98,
-        temp_max: 72.81,
-        pressure: 1015.78,
-        sea_level: 1015.78,
-        grnd_level: 983.17,
-        humidity: 57,
-        temp_kf: 0.46
-      },
-      weather: [{ id: 802, main: 'Clouds', description: 'scattered clouds', icon: '03n' }],
-      clouds: { all: 25 },
-      wind: { speed: 9.84, deg: 22.669 },
-      sys: { pod: 'n' },
-      dt_txt: '2019-07-08 00:00:00'
     }
   ]
   test('should return the lowest minimum value if "min" is undefined proving it has been replaced', () => {
     let newMin = 64.14
     expect(findMinMaxTemp(hours).min).toEqual(newMin)
   })
-  test('should return the first maximum value if max is undefined', () => {
+  test('should return the highest maximum value if "max" is undefined proving it has been replaced', () => {
     let newMax = 78.87
     expect(findMinMaxTemp(hours).max).toEqual(newMax)
   })
   test('should return the lowest minimum value', () => {
     let newMin = 64.14
     expect(findMinMaxTemp(hours).min).toEqual(newMin)
+  })
+  test('should return the highest maximum value', () => {
+    let newMax = 78.87
+    expect(findMinMaxTemp(hours).max).toEqual(newMax)
   })
 })
