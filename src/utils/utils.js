@@ -163,5 +163,5 @@ export const findMinMaxTemp = hours => {
       max = hour.main.temp_max
     }
   })
-  return { min, max }
+  return { min: min.toFixed(), max: max.toFixed() }
 }

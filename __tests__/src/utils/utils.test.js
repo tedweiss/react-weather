@@ -1640,19 +1640,19 @@ describe('findMinMaxTemp', () => {
     }
   ]
   test('should return the lowest minimum value if "min" is undefined proving it has been replaced', () => {
-    let newMin = 64.14
+    let newMin = '64'
     expect(findMinMaxTemp(hours).min).toEqual(newMin)
   })
   test('should return the highest maximum value if "max" is undefined proving it has been replaced', () => {
-    let newMax = 78.87
+    let newMax = '79'
     expect(findMinMaxTemp(hours).max).toEqual(newMax)
   })
   test('should return the lowest minimum value', () => {
-    let newMin = 64.14
+    let newMin = '64'
     expect(findMinMaxTemp(hours).min).toEqual(newMin)
   })
   test('should return the highest maximum value', () => {
-    let newMax = 78.87
+    let newMax = '79'
     expect(findMinMaxTemp(hours).max).toEqual(newMax)
   })
 })
