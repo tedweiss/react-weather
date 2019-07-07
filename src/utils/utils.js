@@ -118,3 +118,21 @@ export const findIndexValueOfArray = (index, array) => {
   value = array[index]
   return value
 }
+
+/**
+ * @function sortDays
+ * @param  {number} currentDay {digit value of the day of the week}
+ * @param  {array} hours {data in 3 hour increments}
+ * @return {array} {grouped hours into each day}
+ */
+export const sortDays = (currentDay, hours) => {
+  let currentDayHours = []
+  hours.map(hour => {
+    let newDate = new Date(hour.dt * 1000)
+    let day = newDate.getDay()
+    if (day === currentDay) {
+      currentDayHours.push(hour)
+    }
+  })
+  return currentDayHours
+}
