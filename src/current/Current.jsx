@@ -70,7 +70,7 @@ const Current = () => {
   console.log('weatherData', weatherData)
 
   let temperature = weatherData.main ? weatherData.main.temp.toFixed() : ''
-  const { fullDate } = convertDateTime(weatherData.dt)
+  const { fullDate, time } = convertDateTime(weatherData.dt)
   const { day, date, month, year } = fullDate
 
   let weatherIcon = weatherData.main ? (weatherData.weather[0] ? weatherData.weather[0].icon : '') : ''
@@ -94,6 +94,7 @@ const Current = () => {
             <div>{day}</div>
             {month} {date}, {year}
           </div>
+          <div className={'time'}>{time}</div>
         </>
       )}
     </>
