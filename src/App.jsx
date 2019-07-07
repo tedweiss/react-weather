@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
-import Current from './current/Current'
-import Forecast from './forecast/Forecast'
+import Page from './components/Page'
 
 const App = () => {
   const [page, setPage] = useState('current')
@@ -24,8 +23,7 @@ const App = () => {
         }}>
         Forecast
       </button>
-      {page === 'current' && <Current />}
-      {page === 'forecast' && <Forecast />}
+      <Page page={page} />
     </>
   )
 }
