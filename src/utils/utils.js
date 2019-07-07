@@ -126,13 +126,19 @@ export const findIndexValueOfArray = (index, array) => {
  * @return {array} {grouped hours into each day}
  */
 export const sortDays = (currentDay, hours) => {
+  let groupedDays = []
   let currentDayHours = []
   hours.map(hour => {
     let newDate = new Date(hour.dt * 1000)
     let day = newDate.getDay()
     if (day === currentDay) {
       currentDayHours.push(hour)
+    } else {
+      groupedDays.push(currentDayHours)
+      currentDayHours = []
+      currentDay = currentDay + 1
+      currentDayHours.push(hour)
     }
   })
-  return currentDayHours
+  return groupedDays
 }
