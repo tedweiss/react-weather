@@ -142,3 +142,19 @@ export const sortDays = (currentDay, hours) => {
   })
   return groupedDays
 }
+
+/**
+ * @function findMinMaxTemp
+ * @param  {array} hours {range to be looped through to find min and max}
+ * @return {object} {min and max numbers}
+ */
+export const findMinMaxTemp = hours => {
+  let min
+  let max
+  hours.map(hour => {
+    if (!min) {
+      min = hour.main.temp_min
+    }
+  })
+  return { min, max }
+}

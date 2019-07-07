@@ -6,7 +6,8 @@ import {
   handleDay,
   handleMonth,
   findIndexValueOfArray,
-  sortDays
+  sortDays,
+  findMinMaxTemp
 } from '../../../src/utils/utils'
 
 describe('matchCity', () => {
@@ -1578,5 +1579,68 @@ describe('sortDays', () => {
       ]
     ]
     expect(sortDays(currentDay, hours)).toEqual(sortedDays)
+  })
+})
+
+describe('findMinMaxTemp', () => {
+  let hours = [
+    {
+      dt: 1562533200,
+      main: {
+        temp: 78.87,
+        temp_min: 77.77,
+        temp_max: 78.87,
+        pressure: 1014.95,
+        sea_level: 1014.95,
+        grnd_level: 982.39,
+        humidity: 50,
+        temp_kf: 0.62
+      },
+      weather: [{ id: 802, main: 'Clouds', description: 'scattered clouds', icon: '03d' }],
+      clouds: { all: 50 },
+      wind: { speed: 10.49, deg: 43.041 },
+      sys: { pod: 'd' },
+      dt_txt: '2019-07-07 21:00:00'
+    },
+    {
+      dt: 1562554800,
+      main: {
+        temp: 64.69,
+        temp_min: 64.14,
+        temp_max: 64.69,
+        pressure: 1016.82,
+        sea_level: 1016.82,
+        grnd_level: 984.33,
+        humidity: 61,
+        temp_kf: 0.31
+      },
+      weather: [{ id: 800, main: 'Clear', description: 'clear sky', icon: '01n' }],
+      clouds: { all: 0 },
+      wind: { speed: 7.43, deg: 24.174 },
+      sys: { pod: 'n' },
+      dt_txt: '2019-07-08 03:00:00'
+    },
+    {
+      dt: 1562544000,
+      main: {
+        temp: 72.81,
+        temp_min: 71.98,
+        temp_max: 72.81,
+        pressure: 1015.78,
+        sea_level: 1015.78,
+        grnd_level: 983.17,
+        humidity: 57,
+        temp_kf: 0.46
+      },
+      weather: [{ id: 802, main: 'Clouds', description: 'scattered clouds', icon: '03n' }],
+      clouds: { all: 25 },
+      wind: { speed: 9.84, deg: 22.669 },
+      sys: { pod: 'n' },
+      dt_txt: '2019-07-08 00:00:00'
+    }
+  ]
+  test('should return the first minimum value if min is undefined', () => {
+    let newMin = 77.77
+    expect(findMinMaxTemp(hours).min).toEqual(newMin)
   })
 })
