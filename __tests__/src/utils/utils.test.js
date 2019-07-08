@@ -1655,4 +1655,21 @@ describe('findMinMaxTemp', () => {
     let newMax = '79'
     expect(findMinMaxTemp(hours).max).toEqual(newMax)
   })
+  test('should return an empty string if the hour does not have a property of main', () => {
+    let missingMainProperty = [
+      {
+        city: { coord: { lat: 42.5334, lon: -83.1464 } },
+        country: 'US',
+        id: 4989005,
+        name: 'Clawson',
+        population: 11825,
+        timezone: -14400,
+        cnt: 40,
+        cod: '200',
+        message: 0.0109
+      }
+    ]
+    let newMinMax = { min: '', max: '' }
+    expect(findMinMaxTemp(missingMainProperty)).toEqual(newMinMax)
+  })
 })

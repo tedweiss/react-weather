@@ -151,17 +151,22 @@ export const sortDays = (currentDay, hours) => {
 export const findMinMaxTemp = hours => {
   let min
   let max
-  hours.map(hour => {
-    if (!min) {
-      min = hour.main.temp_min
-    } else if (hour.main.temp_min < min) {
-      min = hour.main.temp_min
-    }
-    if (!max) {
-      max = hour.main.temp_max
-    } else if (hour.main.temp_max > max) {
-      max = hour.main.temp_max
-    }
-  })
-  return { min: min.toFixed(), max: max.toFixed() }
+  if (hours[0].main) {
+    hours.map(hour => {
+      if (!min) {
+        min = hour.main.temp_min.toFixed()
+      } else if (hour.main.temp_min < min) {
+        min = hour.main.temp_min.toFixed()
+      }
+      if (!max) {
+        max = hour.main.temp_max.toFixed()
+      } else if (hour.main.temp_max > max) {
+        max = hour.main.temp_max.toFixed()
+      }
+    })
+  } else {
+    min = ''
+    max = ''
+  }
+  return { min, max }
 }
