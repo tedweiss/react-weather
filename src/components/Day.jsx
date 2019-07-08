@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import { convertDateTime, findMinMaxTemp } from '../utils/utils'
 import Result from './Result'
+import Temperature from './Temperature'
 
 const Day = props => {
   const { data } = props
@@ -17,12 +18,10 @@ const Day = props => {
         {displayDate.day}, {displayDate.month} {displayDate.date}, {displayDate.year}
       </div>
       <div className={'high'}>
-        high {max}
-        <span>&deg;F</span>
+        high <Temperature temperature={max} />
       </div>
       <div className={'low'}>
-        low {min}
-        <span>&deg;F</span>
+        low <Temperature temperature={min} />
       </div>
       <button onClick={handleClick}>Hourly</button>
       {displayResults && (

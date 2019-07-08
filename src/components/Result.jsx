@@ -1,13 +1,14 @@
 import React from 'react'
 
+import Temperature from './Temperature'
+
 const Result = props => {
   const { temperature, weatherDescription, weatherIcon, fullDate, time } = props
   const { day, date, month, year } = fullDate
   return (
     <>
-      <div className={'temperature'}>
-        {temperature}
-        {temperature && <span>&deg;F</span>}
+      <div>
+        <Temperature temperature={temperature} />
       </div>
       <img
         className={'weather-icon'}

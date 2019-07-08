@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Result from './Result'
+import Temperature from './Temperature'
 import { convertDateTime, findMinMaxTemp } from '../utils/utils'
 
 const Current = props => {
@@ -22,12 +23,10 @@ const Current = props => {
           <div className={'current-page'}>Current Weather</div>
           <div className={'city'}>{data.name}</div>
           <div className={'high'}>
-            high {max}
-            <span>&deg;F</span>
+            high <Temperature temperature={max} />
           </div>
           <div className={'low'}>
-            low {min}
-            <span>&deg;F</span>
+            low <Temperature temperature={min} />
           </div>
           <Result
             temperature={temperature}
