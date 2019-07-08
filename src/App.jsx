@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import Page from './components/Page'
+import { StyledApp } from './styles/styles'
 
 const App = () => {
   const [page, setPage] = useState('current')
@@ -8,7 +9,7 @@ const App = () => {
     setPage(clickedPage)
   }
   return (
-    <>
+    <StyledApp className={'app'}>
       <button
         className={'current-button'}
         onClick={() => {
@@ -24,7 +25,7 @@ const App = () => {
         Forecast
       </button>
       <Page page={page} />
-    </>
+    </StyledApp>
   )
 }
 

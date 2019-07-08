@@ -6,10 +6,8 @@ const Result = props => {
   const { temperature, weatherDescription, weatherIcon, fullDate, time } = props
   const { day, date, month, year } = fullDate
   return (
-    <>
-      <div>
-        <Temperature temperature={temperature} />
-      </div>
+    <div className={'result'}>
+      <Temperature temperature={temperature} />
       <img
         className={'weather-icon'}
         src={'http://openweathermap.org/img/w/' + weatherIcon + '.png'}
@@ -21,7 +19,7 @@ const Result = props => {
         {month} {date}, {year}
       </div>
       <div className={'time'}>{time}</div>
-    </>
+    </div>
   )
 }
 

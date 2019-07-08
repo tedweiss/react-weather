@@ -20,7 +20,7 @@ const Current = props => {
       {/* prevents NaN from flashing on screen */}
       {data.main && (
         <>
-          <div className={'current-page'}>Current Weather</div>
+          <div className={'current-page title'}>Current Weather</div>
           <div className={'city'}>{data.name}</div>
           <div className={'high'}>
             high <Temperature temperature={max} />

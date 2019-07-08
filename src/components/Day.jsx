@@ -13,7 +13,7 @@ const Day = props => {
     setDisplayResults(!displayResults)
   }
   return (
-    <>
+    <div className={'day'}>
       <div className={'day-date'}>
         {displayDate.day}, {displayDate.month} {displayDate.date}, {displayDate.year}
       </div>
@@ -45,7 +45,7 @@ const Day = props => {
           })}
         </>
       )}
-    </>
+    </div>
   )
 }
 

@@ -13,7 +13,7 @@ const Forecast = props => {
       {/* only renders if there is data */}
       {data.list && (
         <>
-          <div className={'forecast-page'}>Forecast Weather</div>
+          <div className={'forecast-page title'}>Forecast Weather</div>
           <div className={'city'}>{data.city.name}</div>
           {days.map((day, idx) => {
             return <Day key={idx} data={day} />
