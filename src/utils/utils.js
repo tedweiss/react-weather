@@ -136,7 +136,8 @@ export const sortDays = (currentDay, hours) => {
     } else {
       groupedDays.push(currentDayHours)
       currentDayHours = []
-      currentDay = currentDay + 1
+      // set to 0 for Sunday
+      currentDay = currentDay === 6 ? 0 : currentDay + 1
       currentDayHours.push(hour)
     }
   })
